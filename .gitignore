@@ -26,3 +26,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#ej si tenog imagen pesada
+#superimagen.png 
+#lo ignora y no lo agrega
