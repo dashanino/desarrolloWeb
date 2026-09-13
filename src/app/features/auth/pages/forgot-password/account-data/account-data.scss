@@ -1,0 +1,204 @@
+@use 'variables' as *;
+
+.ParentDiv {
+    display: flex;
+    min-height: 100vh;
+}
+.begin-visual {
+  position: relative;
+  flex: 0 0 40%;
+}
+
+.imagen-fondo {
+  width: 100%;
+  height: 100vh;
+  display: block;
+
+  object-fit: contain;
+  object-position: bottom center;
+
+  background: #d4e1fc;
+}
+
+.nombre-visual {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-55%);
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--color-primary);
+  text-align: center;
+}
+
+/* Estilos del Logo */
+.logo {
+    width: 150px; /* Controla el tamaño de tu logo */
+    height: auto;
+    margin-top: 10vh; 
+    margin-bottom: -40px;/* Separación con el título */
+}
+
+/* Estilos de los Textos */
+.nombre-visual h1 {
+    font-family: $font-title;
+    font-weight: $font-thin;
+    font-size: 65px;
+    margin-bottom: 25px;
+
+}
+
+.nombre-visual p {
+  font-size: 25px;
+  margin: 0;
+  font-weight: $font-bold;
+  font-family: $font-title;
+  text-align: center;
+  line-height: 1.1;
+
+}
+
+.forgot-password {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+.forgot-password h1 {
+    font-family: $font-title;
+    font-weight: $font-semi-bold;
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+}
+.forgot-password p {
+    font-family: $font-title;
+    font-weight: $font-extra-light;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--color-text);
+}
+
+
+.formulario {
+  background-color: var(--color-surface);
+  width: 90%;
+  max-width: 770px;
+  height: 90vh;
+
+  border-radius: 50px;
+  padding: 120px 70px 50px;
+  box-sizing: border-box;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.form h4{
+    font-family: $font-title;
+    font-weight: $font-medium;
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+
+.form label {
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 18px;
+}
+
+.form input {
+  width: 100%;
+  height: 45px;
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 10px;
+  padding: 0 15px;
+
+  background-color: var(--color-primary-soft);
+
+  font-family: $font-title;
+  font-size: 20px;
+}
+
+button{
+    margin-top: 10%;
+    padding: 20px 30px;
+    font-family: $font-title;
+    font-weight: $font-medium;
+    font-size: 20px;
+    border-radius: 18px;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+
+}
+/* Flecha */
+.header-form {
+  position: relative;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* TÍTULO */
+.header-form h1 {
+  margin: 0;
+  padding: 0;
+
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 35px;
+  color: var(--color-primary);
+}
+
+
+/* FLECHA */
+.back-button {
+  position: absolute;
+
+  /* Más salida hacia la izquierda */
+  left: -55px;
+
+  /* Centrada respecto al título */
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+  color: var(--color-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    background-color: var(--color-primary-soft);
+    border-radius: 50%;
+  }
+}

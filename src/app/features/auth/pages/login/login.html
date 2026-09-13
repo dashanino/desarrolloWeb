@@ -1,0 +1,76 @@
+
+<div class = ParentDiv>
+    <section class="begin-visual">
+        <img src="hospital.png" alt="Ilustración de urgencias" class="imagen-fondo" /> <!-- imágen de fondo-->
+        <div class="nombre-visual">
+        <img class="logo" src="logo.png" alt="Urgentia" />
+        <h1>Urgentia</h1>
+        <p>Sistema De Pre-Triage Para <br>Urgencias</p>
+        </div>
+    </section>
+    
+
+    <section class="info">
+        <!-- info -->
+        <div class="formulario">
+            <div class="header-form">
+                <button
+                    type="button"
+                    class="back-button"
+                    (click)="goBack()"
+                    aria-label="Volver"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M15 18l-6-6 6-6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
+        
+                <h1>Iniciar Sesión</h1>
+            </div>
+            <h3>Bienvenid@</h3>
+            <p>
+                Por favor ingrese sus datos para iniciar sesión.
+            </p>
+            <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+                <h4>Correo</h4>
+                <label>
+                <input type="text" formControlName="email" placeholder="Ingrese su correo" />
+                </label>
+
+                <h4>Contraseña</h4>
+                <label class="password-field">
+                    <input
+                        [type]="showPasswordValue ? 'text' : 'password'"
+                        formControlName="password"
+                        placeholder="Ingrese su contraseña"
+                    />
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        (click)="showPassword()"
+                    >
+                        <mat-icon>
+                            {{ showPasswordValue ? 'visibility' : 'visibility_off' }}
+                        </mat-icon>
+                    </button>
+                </label>
+                <span><a href="/recuperar-contraseña">Olvidé mi contraseña</a></span>
+                
+                <button type="submit" >Iniciar Sesión</button>
+                
+            </form>
+        </div>
+    </section>
+</div> 
+

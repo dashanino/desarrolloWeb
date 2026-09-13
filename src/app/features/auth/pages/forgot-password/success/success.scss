@@ -1,0 +1,137 @@
+@use 'variables' as *;
+
+.ParentDiv {
+    display: flex;
+    min-height: 100vh;
+}
+.begin-visual {
+  position: relative;
+  flex: 0 0 40%;
+}
+
+.imagen-fondo {
+    width: 100%;
+    height: 100vh;
+    display: block;
+  
+    object-fit: contain;
+    object-position: bottom center;
+  
+    background: #d4e1fc;
+  }
+  
+  .nombre-visual {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-55%);
+  
+    width: 100%;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    color: var(--color-primary);
+    text-align: center;
+  }
+
+/* Estilos del Logo */
+.logo {
+    width: 150px; /* Controla el tamaño de tu logo */
+    height: auto;
+    margin-top: 10vh; 
+    margin-bottom: -40px;/* Separación con el título */
+}
+
+/* Estilos de los Textos */
+.nombre-visual h1 {
+    font-family: $font-title;
+    font-weight: $font-thin;
+    font-size: 65px;
+    margin-bottom: 25px;
+
+}
+
+.nombre-visual p {
+  font-size: 25px;
+  margin: 0;
+  font-weight: $font-bold;
+  font-family: $font-title;
+  text-align: center;
+  line-height: 1.1;
+
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+.info h1 {
+    font-family: $font-title;
+    font-weight: $font-semi-bold;
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+}
+.info p {
+    font-family: $font-title;
+    font-weight: $font-extra-light;
+    font-size: 20px;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+img{
+    width:140px;
+    height:140px;
+    margin: 20px auto;
+    display: block;
+}
+
+.formulario {
+    background-color: var(--color-surface);
+    width: 90%;
+    max-width: 770px;
+    height: 90vh;
+    border-radius: 50px;
+    padding: 50px 70px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario h3{
+    font-family: $font-title;
+    font-weight: $font-bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:var(--color-primary);
+    font-size: 25px;
+    margin-bottom:0px ;
+}
+
+button{
+    margin-top: 12%;
+    padding: 20px 30px;
+    font-family: $font-title;
+    font-weight: $font-medium;
+    font-size: 20px;
+    border-radius: 18px;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    width: 100%;
+
+}
+
+.exito{
+    padding-top: 4rem;
+}

@@ -1,0 +1,209 @@
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="topbar">
+  
+      <div class="brand">
+        <img src="logo.png" alt="Urgentia">
+  
+        <span>Urgentia</span>
+  
+        <p>
+          Pre-triage inteligente<br>
+          para urgencias
+        </p>
+      </div>
+  
+      <div class="top-icons">
+  
+        <button type="button">
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+  
+        <button type="button">
+          <mat-icon>settings</mat-icon>
+        </button>
+  
+      </div>
+  
+    </header>
+  
+  
+    <main class="main-layout">
+  
+      <!-- MENU IZQUIERDO -->
+      <aside class="sidebar">
+  
+        <button class="emergency-btn">
+          <img src="alerta.png" alt="Emergencia">
+          Emergencia Inmediata
+        </button>
+  
+        <div class="step">
+          <span class="step-number">1</span>
+          Antecedentes
+        </div>
+  
+        <div class="step active">
+          <span class="step-number">2</span>
+          Tipo de paciente
+        </div>
+  
+        <div class="step">
+          <span class="step-number">3</span>
+          Banderas Rojas
+        </div>
+  
+        <div class="step">
+          <span class="step-number">4</span>
+          Resultado
+        </div>
+  
+      </aside>
+  
+  
+      <!-- TARJETA PRINCIPAL -->
+      <section class="card">
+  
+        <!-- TITULO -->
+        <div class="card-header">
+  
+          <button
+            type="button"
+            class="back-button"
+            (click)="goBack()">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+  
+          <h1>Selecciona El Tipo De Población</h1>
+  
+        </div>
+  
+  
+        <!-- BARRA DE PROGRESO -->
+        <div class="progress">
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+          <span class="line completed-line"></span>
+  
+          <span class="circle active"></span>
+  
+          <span class="line"></span>
+  
+          <span class="circle">3</span>
+  
+          <span class="line"></span>
+  
+          <span class="circle">4</span>
+  
+        </div>
+  
+  
+        <!-- CONTENIDO -->
+        <div class="population-content">
+  
+          <!-- 4 TARJETAS -->
+          <div class="population-grid">
+  
+            <button
+              type="button"
+              class="population-card"
+              [class.selected]="estaSeleccionada('Niño')"
+              (click)="seleccionarPoblacion('Niño')">
+  
+              <img src="nino.png" alt="Niño">
+  
+              <h3>Niño</h3>
+              <p>De 0-12</p>
+  
+            </button>
+  
+  
+            <button
+              type="button"
+              class="population-card"
+              [class.selected]="estaSeleccionada('Adulto')"
+              (click)="seleccionarPoblacion('Adulto')">
+  
+              <img src="adulto.png" alt="Adulto">
+  
+              <h3>Adulto</h3>
+              <p>De 18 - 64</p>
+  
+            </button>
+  
+  
+            <button
+              type="button"
+              class="population-card"
+              [class.selected]="estaSeleccionada('Adulto Mayor')"
+              (click)="seleccionarPoblacion('Adulto Mayor')">
+  
+              <img src="adultomayor.png" alt="Adulto mayor">
+  
+              <h3>Adulto Mayor</h3>
+              <p>De 65 o más</p>
+  
+            </button>
+  
+  
+            <button
+              type="button"
+              class="population-card"
+              [class.selected]="estaSeleccionada('Embarazada')"
+              (click)="seleccionarPoblacion('Embarazada')">
+  
+              <img src="embarazada.png" alt="Embarazada">
+  
+              <h3>Embarazada</h3>
+              <p>Cualquier etapa del embarazo</p>
+  
+            </button>
+  
+          </div>
+  
+  
+          <!-- TRAUMA -->
+          <button
+            type="button"
+            class="population-card trauma-card"
+            [class.selected]="estaSeleccionada('Trauma/Accidente')"
+            (click)="seleccionarPoblacion('Trauma/Accidente')">
+  
+            <img src="trauma.png" alt="Trauma o accidente">
+  
+            <h3>Trauma/Accidente</h3>
+  
+            <p>
+              Lesiones por caídas, golpes o traumas
+            </p>
+  
+          </button>
+  
+        </div>
+  
+  
+        <!-- CONTINUAR -->
+        <div class="continue-container">
+  
+          <button
+            type="button"
+            class="continue-btn"
+            [disabled]="!poblacionSeleccionada"
+            (click)="continuar()">
+  
+            Continuar
+            <mat-icon>arrow_forward</mat-icon>
+  
+          </button>
+  
+        </div>
+  
+      </section>
+  
+    </main>
+  
+  </div>

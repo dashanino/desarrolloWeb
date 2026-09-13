@@ -1,0 +1,344 @@
+@use 'variables' as *;
+
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.ParentDiv {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* =========================
+   PANEL IZQUIERDO
+========================= */
+
+.begin-visual {
+  position: relative;
+  flex: 0 0 40%;
+}
+
+.imagen-fondo {
+    width: 100%;
+    height: 100vh;
+    display: block;
+  
+    object-fit: contain;
+    object-position: bottom center;
+  
+    background: #d4e1fc;
+  }
+  
+  .nombre-visual {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-55%);
+  
+    width: 100%;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    color: var(--color-primary);
+    text-align: center;
+  }
+
+.logo {
+  width: 150px;
+  height: auto;
+
+  margin-top: 10vh;
+  margin-bottom: -40px;
+}
+
+.nombre-visual h1 {
+  margin-bottom: 25px;
+
+  font-family: $font-title;
+  font-weight: $font-thin;
+  font-size: 65px;
+}
+
+.nombre-visual p {
+  margin: 0;
+
+  font-family: $font-title;
+  font-weight: $font-bold;
+  font-size: 25px;
+
+  text-align: center;
+  line-height: 1.1;
+}
+
+
+/* =========================
+   PANEL REGISTER
+========================= */
+
+.register {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+}
+
+.register p {
+  grid-column: 1 / -1;
+
+  font-family: $font-title;
+  font-weight: $font-light;
+  font-size: 16px;
+  font-style: italic;
+
+  color: var(--color-primary);
+}
+
+
+/* =========================
+   TARJETA
+========================= */
+
+.formulario {
+  width: 90%;
+  max-width: 770px;
+  height: 90vh;
+
+  padding: 50px 70px;
+
+  box-sizing: border-box;
+
+  background-color: var(--color-surface);
+  border-radius: 50px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.header-form {
+  position: relative;
+
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.header-form h1 {
+  margin: 0;
+  padding: 0;
+
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 35px;
+
+  color: var(--color-primary);
+}
+
+
+/* =========================
+   FLECHA REGRESAR
+========================= */
+
+.back-button {
+  position: absolute;
+
+  left: -55px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: var(--color-primary);
+
+  cursor: pointer;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    background-color: var(--color-primary-soft);
+    border-radius: 50%;
+  }
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 35px;
+
+  width: 100%;
+}
+
+.columna-izq,
+.columna-der {
+  display: flex;
+  flex-direction: column;
+}
+
+.form h4 {
+  margin-bottom: 0;
+
+  font-family: $font-title;
+  font-weight: $font-medium;
+  font-size: 22px;
+}
+
+.form label {
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 18px;
+}
+
+
+/* =========================
+   INPUTS Y SELECT
+========================= */
+
+.form input,
+.form select {
+  width: 100%;
+  height: 45px;
+
+  box-sizing: border-box;
+
+  padding: 0 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: var(--color-primary-soft);
+
+  font-family: $font-title;
+  font-size: 20px;
+
+  color: #666;
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.checkbox-container {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.checkbox-container label {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  font-family: $font-title;
+  font-size: 16px;
+  font-weight: $font-regular;
+
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+
+  flex: 0 0 20px;
+
+  accent-color: var(--color-primary);
+
+  cursor: pointer;
+}
+
+.checkbox-container a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
+.form button {
+  grid-column: 1 / -1;
+
+  margin-top: 1%;
+
+  padding: 20px 30px;
+
+  border-radius: 18px;
+
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+
+  font-family: $font-title;
+  font-weight: $font-medium;
+  font-size: 20px;
+}
+.input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .input-field mat-icon {
+    position: absolute;
+    left: 15px;
+  
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
+  
+    color: var(--color-text-muted);
+  
+    z-index: 2;
+  }
+  
+  .input-field input,
+  .input-field select {
+    width: 100%;
+    padding-left: 50px;
+  }
+  .form .eps-field select {
+    padding-left: 20px;
+    text-indent: 40px;
+  }

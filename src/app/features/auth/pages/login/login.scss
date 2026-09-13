@@ -1,0 +1,315 @@
+@use 'variables' as *;
+
+.ParentDiv {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =========================
+   PANEL IZQUIERDO
+========================= */
+
+.begin-visual {
+  position: relative;
+  flex: 0 0 40%;
+}
+
+.imagen-fondo {
+  width: 100%;
+  height: 100vh;
+  display: block;
+
+  object-fit: contain;
+  object-position: bottom center;
+
+  background: #d4e1fc;
+}
+
+.nombre-visual {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-55%);
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+
+  margin-top: 10vh;
+  margin-bottom: -40px;
+}
+
+.nombre-visual h1 {
+  font-family: $font-title;
+  font-weight: $font-thin;
+  font-size: 65px;
+
+  margin-bottom: 25px;
+}
+
+.nombre-visual p {
+  font-family: $font-title;
+  font-weight: $font-bold;
+  font-size: 25px;
+
+  margin: 0;
+
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* =========================
+   PANEL DERECHO
+========================= */
+
+.info {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+}
+
+.formulario {
+  width: 90%;
+  max-width: 770px;
+  height: 90vh;
+
+  padding: 50px 70px;
+
+  box-sizing: border-box;
+
+  background-color: var(--color-surface);
+  border-radius: 50px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.header-form {
+  position: relative;
+
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.info h1 {
+  margin: 0;
+
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 35px;
+
+  color: var(--color-primary);
+}
+
+.info h3 {
+  margin: 0 0 10px;
+
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 30px;
+
+  color: var(--color-text);
+}
+
+.info p {
+  margin: 0 0 30px;
+
+  font-family: $font-title;
+  font-weight: $font-extra-light;
+  font-size: 18px;
+
+  line-height: 25px;
+
+  color: var(--color-text);
+}
+
+/* =========================
+   BOTÓN REGRESAR
+========================= */
+
+.back-button {
+  position: absolute;
+
+  left: -55px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--color-primary);
+
+  cursor: pointer;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &:hover {
+    background-color: var(--color-primary-soft);
+    border-radius: 50%;
+  }
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 8px;
+}
+
+.form h4 {
+  margin: 0;
+
+  font-family: $font-title;
+  font-weight: $font-medium;
+  font-size: 22px;
+}
+
+.form label {
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 18px;
+}
+
+.form input {
+  width: 100%;
+  height: 45px;
+
+  box-sizing: border-box;
+
+  padding: 0 15px;
+  margin-bottom: 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: var(--color-primary-soft);
+
+  font-family: $font-title;
+  font-size: 20px;
+}
+
+/* =========================
+   ENLACES
+========================= */
+
+span {
+  display: flex;
+  justify-content: flex-end;
+
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 18px;
+
+  color: var(--color-primary);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.blanco {
+  color: var(--color-surface);
+}
+
+/* =========================
+   BOTÓN INICIAR SESIÓN
+========================= */
+
+.form > button {
+  margin-top: 10%;
+  padding: 20px 30px;
+
+  border: none;
+  border-radius: 18px;
+
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+
+  font-family: $font-title;
+  font-weight: $font-medium;
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.form > button:hover {
+  opacity: 0.9;
+}
+
+.password-field {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.password-field input {
+  padding-right: 50px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 35%;
+  transform: translateY(-50%);
+
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--color-text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.password-toggle mat-icon {
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}

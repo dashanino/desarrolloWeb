@@ -1,0 +1,404 @@
+@use 'variables' as *;
+
+
+/* =========================
+   PÁGINA
+========================= */
+
+.page {
+  min-height: 100vh;
+  background: var(--color-primary-soft);
+
+  padding: 25px 45px;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar {
+  height: 85px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand img {
+  width: 75px;
+  height: auto;
+}
+
+.brand span {
+  font-family: $font-title;
+  font-weight: $font-thin;
+  font-size: 48px;
+
+  color: var(--color-primary);
+}
+
+.brand p {
+  margin: 0;
+
+  padding-left: 15px;
+  border-left: 1px solid #aaa;
+
+  font-family: $font-title;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+
+/* ICONOS SUPERIORES */
+
+.top-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.top-icons button {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #dce5ff;
+  color: var(--color-primary);
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   ESTRUCTURA
+========================= */
+
+.main-layout {
+  display: flex;
+  gap: 30px;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 240px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emergency-btn {
+  width: 100%;
+  height: 68px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #d94b4b;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  font-family: $font-title;
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+.emergency-btn img {
+  width: 36px;
+  height: 36px;
+
+  object-fit: contain;
+}
+
+.step {
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 0 18px;
+  box-sizing: border-box;
+
+  border-radius: 15px;
+
+  font-family: $font-title;
+  font-size: 17px;
+
+  color: #aaa;
+}
+
+.step-number {
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #bbb;
+  color: white;
+
+  font-size: 14px;
+}
+
+.step.active {
+  background: #dce5ff;
+  color: var(--color-primary);
+}
+
+.step.active .step-number {
+  background: #123e9e;
+}
+
+.completed-step {
+  color: #aaa;
+}
+
+
+/* =========================
+   TARJETA PRINCIPAL
+========================= */
+
+.card {
+  flex: 1;
+
+  min-height: 600px;
+
+  background: white;
+
+  border-radius: 45px;
+
+  padding: 30px 40px;
+  box-sizing: border-box;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  position: relative;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.card-header {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.card-header h1 {
+  margin: 0;
+
+  font-family: $font-title;
+  font-size: 36px;
+  font-weight: $font-semi-bold;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+
+  color: var(--color-primary);
+
+  cursor: pointer;
+}
+
+.back-button mat-icon {
+  width: 34px;
+  height: 34px;
+
+  font-size: 34px;
+}
+
+
+/* =========================
+   PROGRESO
+========================= */
+
+.progress {
+  width: 75%;
+
+  margin: 35px auto 30px;
+
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eeeeee;
+
+  font-family: $font-title;
+  color: #777;
+}
+
+
+.circle.completed {
+  background: var(--color-primary);
+  color: white;
+}
+.circle.active {
+    width: 26px;
+    height: 26px;
+
+    border: 7px solid var(--color-primary);
+
+    background: white;
+}
+
+.line {
+  flex: 1;
+
+  height: 5px;
+
+  background: #eeeeee;
+}
+
+.completed-line {
+  background: var(--color-primary);
+}
+
+
+/* =========================
+   BANDERAS ROJAS
+========================= */
+
+.flags-grid {
+  width: 78%;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px 18px;
+}
+
+.flag-button {
+  min-height: 52px;
+
+  padding: 8px 20px;
+
+  border: 2px solid transparent;
+  border-radius: 28px;
+
+  background: white;
+
+  font-family: $font-title;
+  font-size: 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.flag-button:hover {
+  background: #eeeeee;
+
+  transform: translateY(-2px);
+}
+
+.flag-button.selected {
+  background: var(--color-primary-soft);
+
+  border-color: var(--color-primary);
+
+  color: var(--color-primary);
+}
+
+.flag-button small {
+  font-size: 11px;
+  line-height: 1;
+}
+
+
+/* =========================
+   CONTINUAR
+========================= */
+
+.continue-container {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 22px;
+}
+
+.continue-btn {
+  min-width: 180px;
+  height: 52px;
+
+  padding: 0 25px;
+
+  border: none;
+  border-radius: 28px;
+
+  background: #123e9e;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  font-family: $font-title;
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+.continue-btn:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}

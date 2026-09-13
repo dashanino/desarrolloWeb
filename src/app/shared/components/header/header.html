@@ -1,0 +1,50 @@
+<header class="topbar">
+  <div class="brand">
+    <img src="logo.png" alt="Urgentia" />
+    <span>Urgentia</span>
+    <p>Pre-triage inteligente<br />para urgencias</p>
+  </div>
+
+  <div class="header-center">
+    {{ pageTitle() }}
+  </div>
+  <div class="top-icons">
+    <button type="button" class="profile-button" (click)="toggleProfileMenu()">
+      Perfil
+    </button>
+    @if (showProfileMenu) {
+      <div type="button" class="profile-menu">
+        <button type="button" class="btn-profile-menu" (click)="openProfileModal()">
+          Mi perfil
+        </button>
+        <button type="button" class="btn-profile-menu" (click)="logout()">Cerrar sesión</button>
+      </div>
+      <!-- <div  type="button" class="profile-menu">
+        <button type="button" class="btn-profile-menu" (click)="logout()">Cerrar sesión</button>
+      </div> -->
+    }
+
+    <button type="button" class="icon-button">
+      <mat-icon>notifications_none</mat-icon>
+    </button>
+
+    <button type="button" class="icon-button">
+      <mat-icon>settings</mat-icon>
+    </button>
+
+  </div>
+</header>
+@if (showProfileModal) {
+  <div class="modal-overlay">
+    <div class="profile-modal">
+      <h2>Mi perfil</h2>
+      <h3> Nombre: Gustavo Moreno</h3>
+      <h3> Cédula:123456</h3>
+
+ 
+      <p>Usuario Activo</p>
+ 
+      <button type="button" class="modal-close" (click)="closeProfileModal()">Cerrar</button>
+    </div>
+  </div>
+}

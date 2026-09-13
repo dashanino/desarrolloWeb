@@ -1,0 +1,328 @@
+@use 'variables' as *;
+
+.ParentDiv {
+    display: flex;
+    min-height: 100vh;
+}
+.begin-visual {
+  position: relative;
+  flex: 0 0 40%;
+}
+
+.imagen-fondo {
+  width: 100%;
+  height: 100vh;
+  display: block;
+
+  object-fit: contain;
+  object-position: bottom center;
+
+  background: #d4e1fc;
+}
+
+.nombre-visual {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-55%);
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--color-primary);
+  text-align: center;
+}
+
+/* Estilos del Logo */
+.logo {
+    width: 150px; /* Controla el tamaño de tu logo */
+    height: auto;
+    margin-top: 10vh; 
+    margin-bottom: -40px;/* Separación con el título */
+}
+
+/* Estilos de los Textos */
+.nombre-visual h1 {
+    font-family: $font-title;
+    font-weight: $font-thin;
+    font-size: 65px;
+    margin-bottom: 25px;
+
+}
+
+.nombre-visual p {
+  font-size: 25px;
+  margin: 0;
+  font-weight: $font-bold;
+  font-family: $font-title;
+  text-align: center;
+  line-height: 1.1;
+
+}
+
+/* ==================================================
+   LADO DERECHO
+================================================== */
+
+.begin-content {
+  flex: 1;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 70px 6%;
+
+  box-sizing: border-box;
+
+  /* IMPORTANTE */
+  position: relative;
+  background-color: var(--color-surface);
+}
+
+
+/* CONTENIDO CENTRAL */
+
+.welcome {
+  width: 100%;
+  max-width: 700px;
+  
+  margin-top: 100px;
+  text-align: center;
+}
+
+
+/* ==================================================
+   TÍTULO
+================================================== */
+
+.welcome h2 {
+  margin: 0 0 55px;
+
+  font-family: $font-title;
+  font-weight: $font-light;
+  font-size: 48px;
+  line-height: 1;
+
+  color: var(--color-text);
+}
+
+.welcome h2 span {
+  color: var(--color-primary);
+}
+
+
+/* ==================================================
+   DESCRIPCIÓN
+================================================== */
+
+.description {
+  max-width: 620px;
+  margin: 0 auto 42px;
+
+  font-family: $font-title;
+  font-weight: $font-regular;
+  font-size: 19px;
+  line-height: 1.15;
+
+  color: var(--color-text);
+}
+
+
+/* ==================================================
+   INSTRUCCIÓN
+================================================== */
+
+.instruction {
+  margin: 0 0 70px;
+
+  font-family: $font-title;
+  font-weight: $font-regular;
+  font-size: 18px;
+
+  color: var(--color-text);
+}
+
+
+/* ==================================================
+   BOTONES
+================================================== */
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 45px;
+
+  width: 100%;
+}
+
+
+/* Cada botón + su texto */
+
+.action-group {
+  width: 100%;
+}
+
+.action-group button {
+  width: 100%;
+  height: 58px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-family: $font-title;
+  font-weight: $font-semi-bold;
+  font-size: 16px;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* BOTÓN ROJO */
+
+.emergency-button {
+  background: #ff2449;
+}
+
+
+/* BOTÓN AZUL */
+
+.login-button {
+  background: var(--color-primary);
+}
+
+
+/* TEXTO DEBAJO DEL BOTÓN */
+
+.action-group p {
+  margin: 10px 0 0;
+
+  font-family: $font-title;
+  font-weight: $font-light;
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+}
+
+
+/* ==================================================
+   REGISTRO
+================================================== */
+
+.register-text {
+  margin: 50px 0 0;
+
+  font-family: $font-title;
+  font-weight: $font-regular;
+  font-size: 14px;
+
+  color: var(--color-text);
+}
+
+.register-text a {
+  color: var(--color-primary);
+
+  font-weight: $font-semi-bold;
+
+  text-decoration: none;
+}
+
+
+/* ==================================================
+   DIVISOR
+================================================== */
+
+.divider {
+  position: absolute;
+
+  /* DISTANCIA DESDE ABAJO */
+  bottom: 85px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 700px;
+  max-width: 75%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0;
+
+  margin: 0;
+}
+
+
+/* LÍNEAS */
+
+.divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--color-border);
+}
+
+
+/* ESCUDO / ICONO CENTRAL */
+
+.shield {
+  width: 28px;
+  height: 28px;
+
+  margin: 0 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0 0 14px 14px;
+
+  background: var(--color-primary);
+
+  color: white;
+
+  font-family: $font-title;
+  font-size: 16px;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+  position: absolute;
+
+  /* TEXTO CERCA DEL BORDE INFERIOR */
+  bottom: 35px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 700px;
+  max-width: 75%;
+
+  text-align: center;
+
+  font-family: $font-title;
+  font-weight: $font-light;
+  font-size: 12px;
+
+  color: var(--color-text-muted);
+}
+
+footer p {
+  margin: 2px 0;
+}
+
+footer p {
+  margin: 2px 0;
+}
+

@@ -1,0 +1,205 @@
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="topbar">
+  
+      <div class="brand">
+        <img src="logo.png" alt="Urgentia">
+  
+        <span>Urgentia</span>
+  
+        <p>
+          Pre-triage inteligente<br>
+          para urgencias
+        </p>
+      </div>
+  
+      <div class="top-icons">
+  
+        <button type="button">
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+  
+        <button type="button">
+          <mat-icon>settings</mat-icon>
+        </button>
+  
+      </div>
+  
+    </header>
+  
+  
+    <main class="main-layout">
+  
+      <!-- MENU IZQUIERDO -->
+      <aside class="sidebar">
+  
+        <button class="emergency-btn">
+          <img src="alerta.png" alt="Emergencia">
+          Emergencia Inmediata
+        </button>
+  
+        <div class="step completed-step">
+          <span class="step-number">1</span>
+          Antecedentes
+        </div>
+  
+        <div class="step completed-step">
+          <span class="step-number">2</span>
+          Tipo de paciente
+        </div>
+  
+        <div class="step active">
+          <span class="step-number">3</span>
+          Banderas Rojas
+        </div>
+  
+        <div class="step">
+          <span class="step-number">4</span>
+          Resultado
+        </div>
+  
+      </aside>
+  
+  
+      <!-- TARJETA PRINCIPAL -->
+      <section class="card">
+  
+        <!-- TITULO -->
+        <div class="card-header">
+  
+            <button
+            type="button"
+            class="back-button"
+            (click)="goBack()">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+  
+          <h1>Banderas Rojas</h1>
+  
+        </div>
+  
+  
+        <!-- PROGRESO -->
+        <div class="progress">
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+          <span class="line completed-line"></span>
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+          <span class="line completed-line"></span>
+  
+          <span class="circle active"></span>
+  
+          <span class="line"></span>
+  
+          <span class="circle">4</span>
+  
+        </div>
+  
+  
+        <!-- BANDERAS -->
+        <div class="flags-grid">
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Dolor de cabeza')"
+            (click)="seleccionarBandera('Dolor de cabeza')">
+            Dolor de cabeza
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Dolor en abdomen')"
+            (click)="seleccionarBandera('Dolor en abdomen')">
+            Dolor en abdomen
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Hemorragia vaginal')"
+            (click)="seleccionarBandera('Hemorragia vaginal')">
+            Hemorragia vaginal
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Tos con sangre')"
+            (click)="seleccionarBandera('Tos con sangre')">
+            Tos con sangre
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('No siente al bebé')"
+            (click)="seleccionarBandera('No siente al bebé')">
+            No siente al bebé
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Contracciones prematuras')"
+            (click)="seleccionarBandera('Contracciones prematuras')">
+            <span>Contracciones prematuras</span>
+            <small>(Antes de la semana 37)</small>
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Presión alta')"
+            (click)="seleccionarBandera('Presión alta')">
+            Presión alta
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Visión borrosa')"
+            (click)="seleccionarBandera('Visión borrosa')">
+            Visión borrosa
+          </button>
+  
+          <button
+            type="button"
+            class="flag-button"
+            [class.selected]="estaSeleccionada('Zumbidos o pitos en los oídos')"
+            (click)="seleccionarBandera('Zumbidos o pitos en los oídos')">
+            Zumbidos o pitos en los oídos
+          </button>
+  
+        </div>
+  
+  
+        <!-- CONTINUAR -->
+        <div class="continue-container">
+  
+            <button
+            type="button"
+            class="continue-btn"
+            [disabled]="!banderaSeleccionada"
+            (click)="continuar()">
+          
+            Continuar
+            <mat-icon>arrow_forward</mat-icon>
+          
+          </button>
+        </div>
+  
+      </section>
+  
+    </main>
+  
+  </div>

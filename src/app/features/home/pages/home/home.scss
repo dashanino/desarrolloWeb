@@ -1,0 +1,454 @@
+// @use 'variables' as *;
+
+
+// /* =========================
+//    PÁGINA
+// ========================= */
+
+// .page {
+//   min-height: 100vh;
+
+//   padding: 30px 55px;
+//   box-sizing: border-box;
+
+//   background: var(--color-primary-soft);
+// }
+
+
+// /* =========================
+//    HEADER
+// ========================= */
+
+// .topbar {
+//   height: 105px;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+
+//   margin-bottom: 15px;
+// }
+
+
+// .brand {
+//   display: flex;
+//   align-items: center;
+
+//   gap: 14px;
+// }
+
+
+// .brand img {
+//   width: 80px;
+// }
+
+
+// .brand span {
+//   font-family: $font-title;
+//   font-weight: $font-thin;
+
+//   font-size: 50px;
+
+//   color: var(--color-primary);
+// }
+
+
+// .brand p {
+//   margin: 0;
+
+//   padding-left: 15px;
+
+//   border-left: 1px solid #aaa;
+
+//   font-family: $font-title;
+//   font-size: 14px;
+//   line-height: 1.1;
+// }
+
+
+// /* ICONOS ARRIBA */
+
+// .top-icons {
+//   display: flex;
+
+//   gap: 10px;
+// }
+
+
+// .top-icons button {
+//   width: 42px;
+//   height: 42px;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   border: none;
+//   border-radius: 50%;
+
+//   background: #dce5ff;
+//   color: var(--color-primary);
+
+//   cursor: pointer;
+// }
+
+
+// /* =========================
+//    TARJETA PRINCIPAL
+// ========================= */
+
+// .home-card {
+//   width: 92%;
+
+//   margin: 0 auto;
+
+//   padding: 40px 55px;
+
+//   box-sizing: border-box;
+
+//   background: white;
+
+//   border-radius: 45px;
+
+//   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+
+//   position: relative;
+// }
+
+
+// /* VOLVER */
+
+// .back-button {
+//   position: absolute;
+
+//   top: 30px;
+//   left: 30px;
+
+//   border: none;
+
+//   background: transparent;
+//   color: var(--color-primary);
+
+//   cursor: pointer;
+// }
+
+
+// .back-button mat-icon {
+//   width: 34px;
+//   height: 34px;
+
+//   font-size: 34px;
+// }
+
+
+// /* =========================
+//    ESTADO
+// ========================= */
+
+// .status-bar {
+//   width: 85%;
+
+//   height: 30px;
+
+//   margin: 25px auto 15px;
+
+//   padding: 0 12px;
+
+//   box-sizing: border-box;
+
+//   display: flex;
+//   align-items: center;
+
+//   gap: 6px;
+
+//   border-radius: 20px;
+
+//   background: #c8f7d7;
+
+//   font-family: $font-title;
+//   font-size: 13px;
+//   font-weight: $font-semi-bold;
+// }
+
+
+// .status-bar mat-icon {
+//   width: 18px;
+//   height: 18px;
+
+//   font-size: 18px;
+
+//   color: #12a150;
+// }
+
+
+// /* =========================
+//    BIENVENIDA
+// ========================= */
+
+// .home-card h1 {
+//   width: 85%;
+
+//   margin: 0 auto 15px;
+
+//   font-family: $font-title;
+//   font-size: 32px;
+//   font-weight: $font-regular;
+
+//   color: var(--color-primary);
+// }
+
+
+// /* =========================
+//    PERFIL
+// ========================= */
+
+// .profile-section {
+//   width: 85%;
+
+//   margin: 0 auto 30px;
+
+//   display: flex;
+//   align-items: center;
+
+//   gap: 25px;
+// }
+
+
+// .profile-photo img {
+//   width: 145px;
+//   height: 145px;
+
+//   object-fit: cover;
+
+//   border-radius: 20px;
+// }
+
+
+// .profile-info {
+//   flex: 1;
+
+//   display: grid;
+
+//   grid-template-columns: 1fr 1fr auto;
+
+//   gap: 35px;
+
+//   align-items: center;
+// }
+
+
+// .info-column {
+//   display: flex;
+//   flex-direction: column;
+
+//   gap: 15px;
+// }
+
+
+// .info-item {
+//   display: flex;
+//   align-items: center;
+
+//   gap: 10px;
+// }
+
+
+// .info-item mat-icon {
+//   color: var(--color-primary);
+
+//   width: 22px;
+//   height: 22px;
+
+//   font-size: 22px;
+// }
+
+
+// .info-item p {
+//   margin: 0;
+
+//   font-family: $font-title;
+//   font-size: 15px;
+// }
+
+
+// .edit-button {
+//   width: 170px;
+
+//   padding: 10px 15px;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   gap: 7px;
+
+//   border: 1px solid var(--color-primary);
+//   border-radius: 8px;
+
+//   background: white;
+//   color: var(--color-primary);
+
+//   font-family: $font-title;
+
+//   cursor: pointer;
+// }
+
+
+// /* =========================
+//    ÚLTIMA EVALUACIÓN
+// ========================= */
+
+// .last-evaluation {
+//   width: 88%;
+
+//   margin: 0 auto;
+
+//   padding: 20px;
+
+//   box-sizing: border-box;
+
+//   display: flex;
+//   align-items: center;
+
+//   gap: 20px;
+
+//   border: 1px solid #ddd;
+//   border-radius: 18px;
+// }
+
+
+// .evaluation-icon {
+//   width: 60px;
+//   height: 60px;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   border-radius: 50%;
+
+//   background: #dce5ff;
+
+//   color: var(--color-primary);
+// }
+
+
+// .evaluation-icon mat-icon {
+//   width: 35px;
+//   height: 35px;
+
+//   font-size: 35px;
+// }
+
+
+// .evaluation-content {
+//   flex: 1;
+// }
+
+
+// .evaluation-content h3 {
+//   margin: 0 0 5px;
+
+//   font-family: $font-title;
+//   font-size: 16px;
+// }
+
+
+// .evaluation-row {
+//   display: flex;
+//   flex-wrap: wrap;
+
+//   gap: 20px;
+// }
+
+
+// .evaluation-row p {
+//   margin: 0;
+
+//   display: flex;
+//   align-items: center;
+
+//   gap: 5px;
+
+//   font-family: $font-title;
+//   font-size: 14px;
+// }
+
+
+// .evaluation-row mat-icon {
+//   color: var(--color-primary);
+
+//   width: 18px;
+//   height: 18px;
+
+//   font-size: 18px;
+// }
+
+
+// .recommendation {
+//   margin: 8px 0 0;
+
+//   text-align: center;
+
+//   font-family: $font-title;
+//   font-size: 14px;
+
+//   color: var(--color-primary);
+// }
+
+
+// /* =========================
+//    VER DETALLES
+// ========================= */
+
+// .details-button {
+//   min-width: 130px;
+
+//   padding: 10px;
+
+//   border: 1px solid var(--color-primary);
+//   border-radius: 8px;
+
+//   background: white;
+//   color: var(--color-primary);
+
+//   font-family: $font-title;
+
+//   cursor: pointer;
+// }
+
+
+// /* =========================
+//    NUEVA EVALUACIÓN
+// ========================= */
+
+// .new-evaluation-container {
+//   margin-top: 35px;
+
+//   display: flex;
+//   justify-content: center;
+// }
+
+
+// .new-evaluation-button {
+//   min-width: 190px;
+
+//   height: 50px;
+
+//   border: none;
+//   border-radius: 8px;
+
+//   background: #ff2449;
+//   color: white;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   gap: 5px;
+
+//   font-family: $font-title;
+//   font-size: 16px;
+
+//   cursor: pointer;
+// }

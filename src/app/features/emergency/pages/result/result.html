@@ -1,0 +1,221 @@
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="topbar">
+  
+      <div class="brand">
+        <img src="logo.png" alt="Urgentia">
+  
+        <span>Urgentia</span>
+  
+        <p>
+          Pre-triage inteligente<br>
+          para urgencias
+        </p>
+      </div>
+  
+      <div class="top-icons">
+  
+        <button type="button">
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+  
+        <button type="button">
+          <mat-icon>settings</mat-icon>
+        </button>
+  
+      </div>
+  
+    </header>
+  
+  
+    <main class="main-layout">
+  
+      <!-- MENU IZQUIERDO -->
+      <aside class="sidebar">
+  
+        <button class="emergency-btn">
+          <img src="alerta.png" alt="Emergencia">
+          Emergencia Inmediata
+        </button>
+  
+        <div class="step">
+          <span class="step-number">1</span>
+          Antecedentes
+        </div>
+  
+        <div class="step">
+          <span class="step-number">2</span>
+          Tipo de paciente
+        </div>
+  
+        <div class="step">
+          <span class="step-number">3</span>
+          Banderas Rojas
+        </div>
+  
+        <div class="step active">
+          <span class="step-number">4</span>
+          Resultado
+        </div>
+  
+      </aside>
+  
+  
+      <!-- TARJETA PRINCIPAL -->
+      <section class="card">
+  
+        <!-- TITULO -->
+        <div class="card-header">
+  
+          <button type="button" class="back-button"
+            (click)="goBack()">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+  
+          <h1>Resultado de Pre-triaje</h1>
+  
+        </div>
+  
+  
+        <!-- PROGRESO COMPLETO -->
+        <div class="progress">
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+          <span class="line completed-line"></span>
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+          <span class="line completed-line"></span>
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+          <span class="line completed-line"></span>
+  
+          <span class="circle completed">
+            <mat-icon>check</mat-icon>
+          </span>
+  
+        </div>
+  
+  
+        <!-- RESULTADO PRINCIPAL -->
+        <div class="priority-box">
+  
+          <div class="priority-info">
+  
+            <div class="warning-icon">
+              <mat-icon>warning</mat-icon>
+            </div>
+  
+            <div>
+              <h2>ALTA PRIORIDAD</h2>
+  
+              <p>
+                Se identificaron signos y síntomas que requieren
+                atención médica inmediata.
+              </p>
+            </div>
+  
+          </div>
+  
+  
+          <button type="button" class="call-button">
+            <mat-icon>call</mat-icon>
+  
+            <div>
+              <strong>LLAMAR AL 123</strong>
+              <span>Atención de emergencias</span>
+            </div>
+          </button>
+  
+        </div>
+  
+  
+        <!-- TARJETAS INFORMATIVAS -->
+        <div class="result-grid">
+  
+          <div class="result-card">
+  
+            <mat-icon class="result-icon">local_hospital</mat-icon>
+  
+            <div>
+              <h3>Hospital más cercano</h3>
+  
+              <p>
+                Hospital San Vicente Fundación<br>
+                a 2.3 km de tu ubicación
+              </p>
+  
+              <button type="button" class="secondary-button">
+                Ver ruta
+                <mat-icon>location_on</mat-icon>
+              </button>
+            </div>
+  
+          </div>
+  
+  
+          <div class="result-card">
+  
+            <mat-icon class="result-icon">description</mat-icon>
+  
+            <div>
+              <h3>Resumen de tu información</h3>
+  
+              <p>
+                Descarga el resumen de tus antecedentes y síntomas
+                para mostrar al personal médico.
+              </p>
+  
+              <button type="button" class="secondary-button">
+                Descargar
+                <mat-icon>download</mat-icon>
+              </button>
+            </div>
+  
+          </div>
+  
+  
+          <div class="result-card">
+  
+            <mat-icon class="result-icon">info</mat-icon>
+  
+            <div>
+              <h3>Importante</h3>
+  
+              <p>
+                Este resultado NO reemplaza la valoración de un
+                profesional de la salud.
+              </p>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+  
+        <!-- MENSAJE FINAL -->
+        <div class="final-message">
+  
+          <mat-icon>verified_user</mat-icon>
+  
+          <p>
+            Urgentia recomienda buscar atención médica inmediata.<br>
+            En caso de empeoramiento, no dudes en llamar al 123.
+          </p>
+  
+        </div>
+  
+      </section>
+  
+    </main>
+  
+  </div>

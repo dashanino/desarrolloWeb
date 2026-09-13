@@ -1,0 +1,159 @@
+
+<div class = ParentDiv>
+    <section class="begin-visual">
+        <img src="hospital.png" alt="Ilustración de urgencias" class="imagen-fondo" /> <!-- imágen de fondo-->
+        <div class="nombre-visual">
+        <img class="logo" src="logo.png" alt="Urgentia" />
+        <h1>Urgentia</h1>
+        <p>Sistema De Pre-Triage Para <br>Urgencias</p>
+        </div>
+    </section>
+    
+
+    <section class="register">
+    <!-- info -->
+        <div class="formulario">
+            <div class="header-form">
+                <button
+                    type="button"
+                    class="back-button"
+                    (click)="goBack()"
+                    aria-label="Volver"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M15 18l-6-6 6-6"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
+        
+                <h1>Nueva Cuenta</h1>
+            </div>
+        
+            <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+
+              <div class="columna-izq">
+            
+                <h4>Nombres</h4>
+                <label class="input-field">
+                  <mat-icon>person</mat-icon>
+                  <input
+                    type="text"
+                    formControlName="names"
+                    placeholder="Ingrese sus nombres"
+                  />
+                </label>
+            
+                <h4>Correo electrónico</h4>
+                <label class="input-field">
+                  <mat-icon>email</mat-icon>
+                  <input
+                    type="text"
+                    formControlName="email"
+                    placeholder="Ingrese su correo electrónico"
+                  />
+                </label>
+            
+                <h4>Fecha de nacimiento</h4>
+                <label class="input-field">
+                  <mat-icon>calendar_today</mat-icon>
+                  <input
+                    type="date"
+                    formControlName="DOB"
+                  />
+                </label>
+            
+                <h4>Nueva contraseña</h4>
+                <label class="input-field">
+                  <mat-icon>lock</mat-icon>
+                  <input
+                    type="password"
+                    formControlName="nueva_contraseña"
+                    placeholder="Ingrese una nueva contraseña"
+                  />
+                </label>
+            
+              </div>
+            
+            
+              <div class="columna-der">
+            
+                <h4>Apellidos</h4>
+                <label class="input-field">
+                  <mat-icon>person</mat-icon>
+                  <input
+                    type="text"
+                    formControlName="lastname"
+                    placeholder="Ingrese sus apellidos"
+                  />
+                </label>
+            
+                <h4>Número celular</h4>
+                <label class="input-field">
+                  <mat-icon>phone</mat-icon>
+                  <input
+                    type="text"
+                    formControlName="phoneNumber"
+                    placeholder="Ingrese su número celular"
+                  />
+                </label>
+            
+                <h4>EPS</h4>
+                <label class="input-field eps-field">
+                  <mat-icon>medical_services</mat-icon>
+
+                  <select formControlName="EPS">
+                    <option value="" disabled selected>Seleccione su EPS</option>
+                    <option value="SURA">SURA</option>
+                    <option value="Sanitas">Sanitas</option>
+                    <option value="Nueva EPS">Nueva EPS</option>
+                    <option value="Salud Total">Salud Total</option>
+                    <option value="Coosalud">Coosalud</option>
+                    <option value="Emssanar">Emssanar</option>
+                    <option value="Compensar">Compensar</option>
+                    <option value="Famisanar">Famisanar</option>
+                  </select>
+                </label>
+            
+                <h4>Confirmar nueva contraseña</h4>
+                <label class="input-field">
+                  <mat-icon>lock</mat-icon>
+                  <input
+                    type="password"
+                    formControlName="confirmar_contraseña"
+                    placeholder="Confirme nueva contraseña"
+                  />
+                </label>
+            
+              </div>
+            
+              <p>
+                Contraseña debe tener mínimo 8 caracteres, incluyendo mayúscula, número y carácter especial.
+              </p>
+            
+              <div class="checkbox-container">
+                <label>
+                  <input type="checkbox" formControlName="terminos">
+            
+                  <span>
+                    Acepto los
+                    <a (click)="checkTerms()">Términos y Condiciones</a>
+                    y autorizo el tratamiento de mis datos personales de acuerdo con la
+                    <a (click)="checkPrivacy()">Política de Privacidad</a>.
+                  </span>
+                </label>
+              </div>
+            
+              <button type="submit">
+                Crear Cuenta
+              </button>
+            
+            </form>
