@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /* ===== Brand ===== */
+  --color-primary: #2260ff;
+  --color-primary-dark: #00278c;
+  --color-primary-soft: #ecf1ff;
+
+  /* ===== Backgrounds ===== */
+  --color-background: #ecf1ff;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f8faff;
+
+  /* ===== Text ===== */
+  --color-text: #000000; // Títulos
+  --color-text-primary: #070707; // Texto del logo / marca
+  --color-text-muted: #6b7280; // Texto secundario
+  --color-text-disabled: #a7b0c2; // Deshabilitado
+
+  /* ===== Borders ===== */
+  --color-border: #d8e1f5;
+
+  /* ===== Status ===== */
+  --color-success: #14ae5c;
+  --color-success-soft: #eafbf2;
+
+  --color-error: #c94747;
+  --color-error-soft: #fceeee;
+
+  --color-warning: #f4a300;
+  --color-warning-soft: #fff8e6;
+
+  /* ===== Shadow ===== */
+  --shadow-card: 0 18px 50px rgba(34, 96, 255, 0.15);
+
+  /* ===== Radius ===== */
+  --radius-small: 8px;
+  --radius-medium: 14px;
+  --radius-large: 24px;
+
+  /* ===== Transition ===== */
+  --transition-default: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-background);
+}

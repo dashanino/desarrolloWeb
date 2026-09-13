@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "login-class": {
+    "urgentia": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -83,10 +83,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "login-class:build:production"
+              "buildTarget": "urgentia:build:production"
             },
             "development": {
-              "buildTarget": "login-class:build:development"
+              "buildTarget": "urgentia:build:development"
             }
           },
           "defaultConfiguration": "development"
