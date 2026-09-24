@@ -1,0 +1,28 @@
+<div>
+    <p>Hola soy Gustavo ></p>
+    <p>Tu cómo te llamas</p>
+    <div class="divSpan">
+      <span>hola soy gustavo</span>
+      <span>Tu como te llamas</span>
+    </div>
+    <div class="sizeDivButton">
+      <button type="button" class="login-button" (click)="initLogin()">Iniciar Sesión</button>
+    </div>
+    <div>
+      <h3>Usuario:</h3>
+      <input type="text" />
+      <h3>Contraseña:</h3>
+      <input type="password" />
+      <!-- hacer un comentario -->
+    </div>
+   
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        <input type="text" formControlName="user" placeholder="Usuario" />
+      </label>
+      <label>
+        <input type="password" formControlName="password" placeholder="Contraseña" />
+      </label>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  </div>
