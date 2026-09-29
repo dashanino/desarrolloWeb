@@ -1,0 +1,185 @@
+<div class="chat-page">
+
+  <!-- Header -->
+  <header class="chat-header">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+
+      <div>
+        <h1>AI Assistant</h1>
+        <span>Interactúa con nuestros agentes de IA</span>
+      </div>
+    </div>
+
+    <!-- Selector de agente -->
+    <div class="agent-selector">
+      <label for="agent">Agente</label>
+
+      <select
+        id="agent"
+        [(ngModel)]="selectedAgentId"
+        (change)="changeAgent()"
+      >
+        <option value="" disabled>
+          Selecciona un agente
+        </option>
+
+        <option
+          *ngFor="let agent of agents"
+          [value]="agent.id"
+        >
+          {{ agent.name }}
+        </option>
+      </select>
+    </div>
+  </header>
+
+
+  <!-- Chat -->
+  <main class="chat-container">
+
+    <!-- Mensaje inicial -->
+    <div
+      class="welcome"
+      *ngIf="messages.length === 0"
+    >
+      <div class="welcome-icon">✦</div>
+
+      <h2>¿En qué puedo ayudarte?</h2>
+
+      <p>
+        Selecciona un agente y comienza una conversación.
+        También puedes cargar una imagen para que sea analizada.
+      </p>
+    </div>
+
+
+    <!-- Conversación -->
+    <div class="messages">
+
+      <div
+        *ngFor="let message of messages"
+        class="message"
+        [class.user-message]="message.role === 'user'"
+        [class.agent-message]="message.role === 'assistant'"
+      >
+
+        <div class="message-avatar">
+          {{ message.role === 'user' ? 'Tú' : '✦' }}
+        </div>
+
+        <div class="message-content">
+
+          <!-- Texto -->
+          <div
+            class="message-text"
+            *ngIf="message.content"
+          >
+            {{ message.content }}
+          </div>
+
+          <!-- Imagen -->
+          <img
+            *ngIf="message.image"
+            [src]="message.image"
+            class="message-image"
+            alt="Imagen enviada para análisis"
+          />
+
+        </div>
+
+      </div>
+
+      <!-- Loading -->
+      <div
+        class="message agent-message"
+        *ngIf="isLoading"
+      >
+        <div class="message-avatar">✦</div>
+
+        <div class="typing">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- Composer -->
+  <footer class="composer-area">
+
+    <!-- Preview de imagen -->
+    <div
+      class="image-preview"
+      *ngIf="selectedImage"
+    >
+
+      <img
+        [src]="selectedImagePreview"
+        alt="Imagen seleccionada"
+      />
+
+      <button
+        type="button"
+        (click)="removeImage()"
+        aria-label="Eliminar imagen"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="composer">
+
+      <!-- Input de archivo -->
+      <input
+        type="file"
+        #fileInput
+        hidden
+        accept="image/*"
+        (change)="onImageSelected($event)"
+      />
+
+      <button
+        class="attach-button"
+        type="button"
+        (click)="fileInput.click()"
+        title="Cargar imagen"
+      >
+        ＋
+      </button>
+
+
+      <!-- Texto -->
+      <textarea
+        [(ngModel)]="messageText"
+        (keydown.enter)="handleEnter($event)"
+        placeholder="Escribe tu mensaje..."
+        rows="1"
+      ></textarea>
+
+
+      <!-- Enviar -->
+      <button
+        class="send-button"
+        type="button"
+        (click)="sendMessage()"
+        [disabled]="isLoading || (!messageText.trim() && !selectedImage)"
+      >
+        ↑
+      </button>
+
+    </div>
+
+    <small>
+      Puedes enviar texto e imágenes para mantener el contexto de la conversación.
+    </small>
+
+  </footer>
+
+</div>

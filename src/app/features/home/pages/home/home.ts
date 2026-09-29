@@ -15,6 +15,11 @@ export class Home {
   irPerfil() {
     this.router.navigate(['app/perfil']);
   }
+  irGPT() {
+    this.router.navigate(['/gpt']);
+  }
+  
+
 
   // nuevaEvaluacion() {
   //   this.router.navigate(['/red-flags/adulto']);

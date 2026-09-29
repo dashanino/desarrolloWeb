@@ -95,6 +95,11 @@ export const routes: Routes = [
   // -------------------------
 
   {
+    path: 'gpt',
+    loadComponent: () => import('./features/gpt/gpt').then((m) => m.Gpt),
+  },
+
+  {
     path: 'patient-group',
     loadComponent: () =>
       import('./features/emergency/pages/patient-group/patient-group').then((m) => m.PatientGroup),
