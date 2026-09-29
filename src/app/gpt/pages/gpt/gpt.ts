@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 interface Agent {
   id: string;
   name: string;
+  description?: string;
 }
 
 interface ChatMessage {
@@ -20,13 +21,11 @@ interface ChatMessage {
     CommonModule,
     FormsModule
   ],
-  standalone:true,
+  standalone: true,
   selector: 'app-gpt',
   styleUrl: './gpt.scss',
   templateUrl: './gpt.html',
 })
-
-
 export class Gpt {
 
   agents: Agent[] = [];
@@ -43,13 +42,16 @@ export class Gpt {
 
   isLoading = false;
 
+  // Las peticiones utilizan el proxy de Angular.
+  private apiUrl = '/api';
+
+  conversationId = crypto.randomUUID();
 
   constructor(
     private http: HttpClient
   ) {
     this.loadAgents();
   }
-
 
   /*
    * Obtener los agentes disponibles
@@ -58,13 +60,20 @@ export class Gpt {
   loadAgents(): void {
 
     this.http
-      .get<Agent[]>('/api/agents')
+      .get<{ agents: Agent[] }>('/api/agents')
       .subscribe({
-        next: (agents) => {
-          this.agents = agents;
+  
+        next: (data) => {
+          console.log('Respuesta:', data);
+          console.log('¿Es un arreglo?', Array.isArray(data.agents));
+        
+          this.agents = Array.isArray(data.agents)
+            ? data.agents
+            : [];
         },
-
+  
         error: (error) => {
+  
           console.error(
             'Error obteniendo agentes:',
             error
@@ -73,22 +82,15 @@ export class Gpt {
       });
   }
 
-
   /*
    * Cambiar de agente.
-   *
-   * Al cambiar de agente podemos limpiar
-   * la conversación actual.
    */
   changeAgent(): void {
-
-    this.messages = [];
 
     this.messageText = '';
 
     this.removeImage();
   }
-
 
   /*
    * Seleccionar imagen.
@@ -105,15 +107,23 @@ export class Gpt {
     }
 
     if (!file.type.startsWith('image/')) {
+
+      console.error(
+        'El archivo seleccionado no es una imagen.'
+      );
+
       return;
     }
 
     this.selectedImage = file;
 
+    if (this.selectedImagePreview) {
+      URL.revokeObjectURL(this.selectedImagePreview);
+    }
+
     this.selectedImagePreview =
       URL.createObjectURL(file);
   }
-
 
   /*
    * Eliminar imagen seleccionada.
@@ -122,9 +132,12 @@ export class Gpt {
 
     this.selectedImage = null;
 
+    if (this.selectedImagePreview) {
+      URL.revokeObjectURL(this.selectedImagePreview);
+    }
+
     this.selectedImagePreview = null;
   }
-
 
   /*
    * Manejar Enter.
@@ -142,24 +155,21 @@ export class Gpt {
     }
   }
 
-
   /*
    * Enviar mensaje al agente.
    */
   sendMessage(): void {
 
+    // 1. Evitar peticiones simultáneas.
+
     if (this.isLoading) {
       return;
     }
 
-    if (
-      !this.messageText.trim() &&
-      !this.selectedImage
-    ) {
-      return;
-    }
+    // 2. Validar el agente.
 
     if (!this.selectedAgentId) {
+
       console.error(
         'Debe seleccionar un agente.'
       );
@@ -167,103 +177,138 @@ export class Gpt {
       return;
     }
 
-
     const text = this.messageText.trim();
 
-    /*
-     * Guardamos el mensaje inmediatamente
-     * en la conversación.
-     */
+    // 3. Validar el mensaje.
+
+    if (!text) {
+
+      console.error(
+        'Debe escribir un mensaje.'
+      );
+
+      return;
+    }
+
+    // 4. Validar imagen para el agente de visión.
+
+    if (
+      this.selectedAgentId === 'vision' &&
+      !this.selectedImage
+    ) {
+
+      console.error(
+        'Debe seleccionar una imagen.'
+      );
+
+      return;
+    }
+
+    // 5. Preparar el mensaje del usuario.
+
     const userMessage: ChatMessage = {
+
       role: 'user',
+
       content: text,
+
       image: this.selectedImagePreview ?? undefined
     };
 
-    this.messages.push(userMessage);
+    // 6. Preparar la petición.
 
+    let request$;
 
-    /*
-     * FormData permite mandar texto
-     * + imagen en la misma petición.
-     */
-    const formData = new FormData();
+    if (this.selectedAgentId === 'vision') {
 
-    formData.append(
-      'agent_id',
-      this.selectedAgentId
-    );
+      const formData = new FormData();
 
-    formData.append(
-      'message',
-      text
-    );
+      formData.append(
+        'prompt',
+        text
+      );
 
-
-    /*
-     * Enviamos TODO el historial.
-     *
-     * Esto permite que el backend conserve
-     * el contexto de la conversación.
-     */
-    formData.append(
-      'history',
-      JSON.stringify(this.messages)
-    );
-
-
-    if (this.selectedImage) {
+      formData.append(
+        'conversation_id',
+        this.conversationId
+      );
 
       formData.append(
         'image',
-        this.selectedImage
+        this.selectedImage!
       );
+
+      request$ = this.http.post<{
+        response: string;
+        conversation_id: string;
+      }>(
+        `${this.apiUrl}/vision/analyze`,
+        formData
+      );
+
+    } else if (this.selectedAgentId === 'text') {
+
+      request$ = this.http.post<{
+        response: string;
+        conversation_id: string;
+      }>(
+        `${this.apiUrl}/generate-text`,
+        {
+          prompt: text,
+          conversation_id: this.conversationId
+        }
+      );
+
+    } else {
+
+      console.error(
+        'Agente no reconocido.'
+      );
+
+      return;
     }
 
+    // 7. Enviar la petición.
 
     this.isLoading = true;
 
+    request$.subscribe({
 
-    this.http
-      .post<{ response: string }>(
-        '/api/chat',
-        formData
-      )
-      .subscribe({
+      next: (response) => {
 
-        next: (response) => {
+        this.messages.push(userMessage);
 
-          this.messages.push({
-            role: 'assistant',
-            content: response.response
-          });
+        this.messages.push({
 
-          this.isLoading = false;
-        },
+          role: 'assistant',
 
-        error: (error) => {
+          content: response.response
+        });
 
-          console.error(
-            'Error enviando mensaje:',
-            error
-          );
+        this.messageText = '';
 
-          this.messages.push({
-            role: 'assistant',
-            content:
-              'No fue posible obtener una respuesta del agente.'
-          });
+        this.removeImage();
 
-          this.isLoading = false;
-        }
-      });
+        this.isLoading = false;
+      },
 
+      error: (error) => {
 
-    /*
-     * Limpiar input.
-     */
-    this.messageText = '';
+        console.error(
+          'Error enviando mensaje:',
+          error
+        );
 
-    this.removeImage();
+        this.messages.push({
+
+          role: 'assistant',
+
+          content:
+            'No fue posible obtener una respuesta del agente.'
+        });
+
+        this.isLoading = false;
+      }
+    });
   }
 }

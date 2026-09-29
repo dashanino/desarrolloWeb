@@ -1,5 +1,8 @@
 <div class="chat-page">
-
+  <pre>
+    Agents: {{ agents | json }}
+    Messages: {{ messages | json }}
+  </pre>
   <!-- Header -->
   <header class="chat-header">
     <div class="brand">
@@ -24,11 +27,8 @@
           Selecciona un agente
         </option>
 
-        <option
-          *ngFor="let agent of agents"
-          [value]="agent.id"
-        >
-          {{ agent.name }}
+        <option value="text">
+          Agente de texto
         </option>
       </select>
     </div>
@@ -58,10 +58,10 @@
     <div class="messages">
 
       <div
-        *ngFor="let message of messages"
-        class="message"
-        [class.user-message]="message.role === 'user'"
-        [class.agent-message]="message.role === 'assistant'"
+      *ngFor="let message of messages"
+      class="message"
+      [class.user-message]="message.role === 'user'"
+      [class.agent-message]="message.role === 'assistant'"
       >
 
         <div class="message-avatar">

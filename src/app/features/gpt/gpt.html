@@ -16,21 +16,21 @@
       <label for="agent">Agente</label>
 
       <select
-        id="agent"
-        [(ngModel)]="selectedAgentId"
-        (change)="changeAgent()"
-      >
-        <option value="" disabled>
-          Selecciona un agente
-        </option>
+      id="agent"
+      [(ngModel)]="selectedAgentId"
+      (change)="changeAgent()"
+    >
+      <option value="" disabled>
+        Selecciona un agente
+      </option>
 
-        <option
-          *ngFor="let agent of agents"
-          [value]="agent.id"
-        >
-          {{ agent.name }}
-        </option>
-      </select>
+      <option
+        *ngFor="let agent of agents"
+        [value]="agent.id"
+      >
+        {{ agent.name }}
+      </option>
+    </select>
     </div>
   </header>
 
