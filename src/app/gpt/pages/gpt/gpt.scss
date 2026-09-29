@@ -1,0 +1,504 @@
+$blue-dark: #0b2d5c;
+$blue: #1769d1;
+$blue-light: #eaf3ff;
+$blue-soft: #f5f9ff;
+
+$text: #172033;
+$text-light: #64748b;
+$border: #dce5f0;
+$white: #ffffff;
+
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.chat-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $white;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.chat-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  border-bottom: 1px solid $border;
+  background: $white;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  color: $white;
+  background: linear-gradient(
+    135deg,
+    $blue-dark,
+    $blue
+  );
+
+  font-size: 20px;
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-size: 16px;
+  color: $text;
+}
+
+.brand span {
+  font-size: 11px;
+  color: $text-light;
+}
+
+
+/* =========================
+   AGENT SELECTOR
+========================= */
+
+.agent-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  label {
+    font-size: 12px;
+    color: $text-light;
+  }
+
+  select {
+    min-width: 180px;
+
+    padding: 9px 12px;
+
+    border: 1px solid $border;
+    border-radius: 8px;
+
+    background: $white;
+    color: $text;
+
+    outline: none;
+
+    &:focus {
+      border-color: $blue;
+    }
+  }
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+.chat-container {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 30px 20px 150px;
+}
+
+.messages {
+  width: min(800px, 100%);
+  margin: auto;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+  width: min(600px, 100%);
+
+  margin: 80px auto;
+
+  text-align: center;
+}
+
+.welcome-icon {
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  color: $white;
+
+  background: linear-gradient(
+    135deg,
+    $blue-dark,
+    $blue
+  );
+
+  font-size: 24px;
+}
+
+.welcome h2 {
+  margin: 0 0 10px;
+
+  font-size: 28px;
+  color: $text;
+}
+
+.welcome p {
+  margin: 0;
+
+  color: $text-light;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.message {
+  display: flex;
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.user-message .message-avatar {
+  background: $blue-light;
+  color: $blue;
+}
+
+.agent-message .message-avatar {
+  background: $blue;
+  color: $white;
+}
+
+.message-content {
+  max-width: 700px;
+}
+
+.message-text {
+  padding: 10px 13px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.user-message .message-text {
+  background: $blue-light;
+  color: $text;
+}
+
+.agent-message .message-text {
+  background: $blue-soft;
+  color: $text;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.message-image {
+  display: block;
+
+  max-width: 350px;
+  max-height: 350px;
+
+  margin-top: 8px;
+
+  border-radius: 10px;
+  border: 1px solid $border;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   TYPING
+========================= */
+
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  height: 32px;
+}
+
+.typing span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: $blue;
+
+  animation: typing 1.2s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =========================
+   COMPOSER
+========================= */
+
+.composer-area {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 12px 20px 15px;
+
+  background: linear-gradient(
+    to top,
+    white 80%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.composer {
+  width: min(800px, 100%);
+
+  min-height: 55px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+
+  padding: 8px;
+
+  border: 1px solid $border;
+  border-radius: 14px;
+
+  background: $white;
+
+  box-shadow:
+    0 5px 20px rgba(20, 60, 110, 0.08);
+
+  &:focus-within {
+    border-color: #9cc4f5;
+  }
+}
+
+textarea {
+  flex: 1;
+
+  min-height: 38px;
+  max-height: 120px;
+
+  padding: 9px 5px;
+
+  border: none;
+  outline: none;
+
+  resize: none;
+
+  color: $text;
+
+  font-size: 14px;
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+}
+
+.attach-button,
+.send-button {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.attach-button {
+  background: transparent;
+  color: $text-light;
+
+  font-size: 19px;
+
+  &:hover {
+    background: $blue-light;
+    color: $blue;
+  }
+}
+
+.send-button {
+  color: $white;
+  background: $blue;
+
+  font-size: 20px;
+
+  &:hover {
+    background: $blue-dark;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+
+.image-preview {
+  position: relative;
+
+  width: min(800px, 100%);
+
+  margin: 0 auto 8px;
+}
+
+.image-preview img {
+  width: 65px;
+  height: 65px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+  border: 1px solid $border;
+}
+
+.image-preview button {
+  position: absolute;
+
+  top: -6px;
+  left: 52px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  color: white;
+  background: #334155;
+
+  cursor: pointer;
+}
+
+.composer-area > small {
+  display: block;
+
+  width: min(800px, 100%);
+
+  margin: 7px auto 0;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .chat-header {
+    padding: 0 15px;
+  }
+
+  .agent-selector label {
+    display: none;
+  }
+
+  .agent-selector select {
+    min-width: 130px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .welcome {
+    margin-top: 50px;
+  }
+
+  .welcome h2 {
+    font-size: 24px;
+  }
+}
